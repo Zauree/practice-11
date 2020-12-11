@@ -1,3 +1,4 @@
+import 'package:bus_fleets/screens/choose-flight.dart';
 import 'package:flutter/material.dart';
 
 class Passenger extends StatefulWidget {
@@ -8,14 +9,14 @@ class Passenger extends StatefulWidget {
 
 class _PassengerState extends State<Passenger> {
 
-  var passangers = [
+  var passenger = [
     {
       'name': 'Aigerim',
       'place': '0 A',
       'place2': 'верхний',
       'type': 'OFFLINE',
       'telNumber': '77079282498',
-      'pochta': 'Почта',
+      'mail': 'Почта',
       'price': '3000',
       'colorsType': Colors.grey,
     },
@@ -25,9 +26,10 @@ class _PassengerState extends State<Passenger> {
       'place2': 'верхний',
       'type': 'OFFLINE',
       'telNumber': '77073452776',
-      'pochta': 'Почта',
+      'mail': 'Почта',
       'price': '3000',
       'colorsType': Colors.grey,
+
     },
     {
       'name': 'ASSEL',
@@ -35,9 +37,10 @@ class _PassengerState extends State<Passenger> {
       'type': 'ONLINE',
       'place2': 'нижний',
       'telNumber': '77013456644',
-      'pochta': 'Почта',
+      'mail': 'Почта',
       'price': '2700',
-      'colorsType': Colors.green,
+      'colorsType': Color.fromRGBO(117, 179, 101, 1),
+
     },
     {
       'name': 'TEMIRLAN',
@@ -45,9 +48,10 @@ class _PassengerState extends State<Passenger> {
       'place2': 'нижний',
       'type': 'ONLINE',
       'telNumber': '77056874222',
-      'pochta': 'Почта',
+      'mail': 'Почта',
       'price': '2500',
-      'colorsType': Colors.green,
+      'colorsType': Color.fromRGBO(117, 179, 101, 1),
+
     },
     {
       'name': 'Свободные места',
@@ -55,9 +59,9 @@ class _PassengerState extends State<Passenger> {
       'place2': '',
       'type': '',
       'telNumber': ' ',
-      'pochta': ' ',
+      'mail': ' ',
       'price': ' ',
-      'colorsType': Colors.white10,
+
     },
     {
       'name': 'Нет имени',
@@ -65,9 +69,10 @@ class _PassengerState extends State<Passenger> {
       'place2': 'нижний',
       'type': 'no type',
       'telNumber': ' ',
-      'pochta': ' ',
+      'mail': ' ',
       'price': ' ',
-      'colorsType': Colors.green,
+      'colorsType': Color.fromRGBO(117, 179, 101, 1),
+
     },
     {
       'name': 'Нет имени',
@@ -75,9 +80,10 @@ class _PassengerState extends State<Passenger> {
       'place2': 'нижний',
       'type': 'no type',
       'telNumber': ' ',
-      'pochta': ' ',
+      'mail': ' ',
       'price': ' ',
-      'colorsType': Colors.green,
+      'colorsType': Color.fromRGBO(117, 179, 101, 1),
+
     },
     {
       'name': 'Нет имени',
@@ -85,9 +91,10 @@ class _PassengerState extends State<Passenger> {
       'place2': 'нижний',
       'type': 'no type',
       'telNumber': ' ',
-      'pochta': ' ',
+      'mail': ' ',
       'price': ' ',
-      'colorsType': Colors.green,
+      'colorsType': Color.fromRGBO(117, 179, 101, 1),
+
     },
     {
       'name': 'Нет имени',
@@ -95,9 +102,9 @@ class _PassengerState extends State<Passenger> {
       'place2': 'нижний',
       'type': 'no type',
       'telNumber': ' ',
-      'pochta': ' ',
+      'mail': ' ',
       'price': ' ',
-      'colorsType': Colors.green,
+      'colorsType': Color.fromRGBO(117, 179, 101, 1),
     },
   ];
 
@@ -113,21 +120,18 @@ class _PassengerState extends State<Passenger> {
           icon: Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.of(context).pop();
-          /*  Navigator.push(
+            Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => PassangerReis(),
+                  builder: (context) => ChooseFlight(),
                 )
-
-            ); */
+            );
           },
         ),
-        backgroundColor: Colors.green,
-        brightness: Brightness.light,
-        elevation: 0,
+        backgroundColor: Color.fromRGBO(117, 179, 101, 1),
       ),
       body: ListView.builder(
-        itemCount: passangers.length,
+        itemCount: passenger.length,
         itemBuilder: (context, i) {
           return i == 0 ? _titleText1() : _listPassangers(i - 1);
         },
@@ -142,7 +146,8 @@ class _PassengerState extends State<Passenger> {
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.all(20.0),
-            child: Row(
+            child: Center(child:
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
@@ -151,6 +156,7 @@ class _PassengerState extends State<Passenger> {
                   style: TextStyle(
                     color: Colors.black54,
                     fontSize: 16,
+                    fontWeight: FontWeight.w600
                   ),
                 ),
                 Text(
@@ -159,6 +165,8 @@ class _PassengerState extends State<Passenger> {
                   style: TextStyle(
                     color: Colors.black54,
                     fontSize: 16,
+                      fontWeight: FontWeight.w600
+
                   ),
                 ),
                 Text(
@@ -167,13 +175,15 @@ class _PassengerState extends State<Passenger> {
                   style: TextStyle(
                     color: Colors.black54,
                     fontSize: 16,
+                      fontWeight: FontWeight.w600
+
                   ),
                 ),
                 SizedBox(
                   height: 3,
                 )
               ],
-            ),
+            ),),
           )
         ],
       ),
@@ -183,7 +193,7 @@ class _PassengerState extends State<Passenger> {
   _listPassangers(i) {
     return GestureDetector(
       onTap: () {
-        infoAboutPassanger(context, passangers[i]['name'], passangers[i]['telNumber'], passangers[i]['pochta'], passangers[i]['place'], passangers[i]['place2'], passangers[i]['price']);
+
       },
       child: Column(
         children: <Widget>[
@@ -194,11 +204,13 @@ class _PassengerState extends State<Passenger> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
-                  passangers[i]['name'].toString(),
+                  passenger[i]['name'].toString(),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black54,
                     fontSize: 16,
+                      fontWeight: FontWeight.w600
+
                   ),
                 ),
                 Container(
@@ -207,19 +219,23 @@ class _PassengerState extends State<Passenger> {
                     child: Column(
                       children: <Widget>[
                         Text(
-                          passangers[i]['place'].toString(),
+                          passenger[i]['place'].toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black54,
                             fontSize: 16,
+                              fontWeight: FontWeight.w600
+
                           ),
                         ),
                         Text(
-                          passangers[i]['place2'].toString(),
+                          passenger[i]['place2'].toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black54,
                             fontSize: 16,
+                              fontWeight: FontWeight.w600
+
                           ),
                         ),
                       ],
@@ -231,7 +247,7 @@ class _PassengerState extends State<Passenger> {
                   height: 35,
                   child: Center(
                     child: Text(
-                      passangers[i]['type'].toString(),
+                      passenger[i]['type'].toString(),
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,
@@ -241,7 +257,7 @@ class _PassengerState extends State<Passenger> {
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
-                    color: passangers[i]['colorsType'],
+                    color: passenger[i]['colorsType'],
                   ),
                 )
               ],
@@ -254,148 +270,5 @@ class _PassengerState extends State<Passenger> {
 
 }
 
-infoAboutPassanger(context, name, telNumber, pochta, place, place2, price) {
-  return showDialog(
-    context: context,
-    builder: (context) {
-      return GestureDetector(
-        child: Card(
-          margin: EdgeInsets.all(10.0),
-          child: Row(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(9.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      'Информация о пассажире',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Colors.black54,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      name.toString(),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black54,
-                        fontSize: 16,
-                      ),
-                    ),
-                    Text(
-                      telNumber.toString(),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black54,
-                        fontSize: 16,
-                      ),
-                    ),
-                    Text(
-                      pochta.toString(),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.green,
-                        fontSize: 16,
-                      ),
-                    ),
 
-                    SizedBox(
-                      height: 5,
-                    ),
-
-
-                    Container(
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Column(
-                          children: <Widget>[
-                            Text(
-                              'Место',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Colors.black54,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              place.toString() + ' ' + place2.toString(),
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.black54,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Column(
-                          children: <Widget>[
-                            Text(
-                              'Цена',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Colors.black54,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              price.toString(),
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.black54,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-
-
-                    SizedBox(
-                      height: 5,
-                    ),
-
-
-                    OutlineButton(
-                      borderSide:
-                      BorderSide(width: 2.0, color: Colors.green),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0)),
-                      child: Text('Изменить'),
-                      onPressed: () {},
-                    ),
-                    OutlineButton(
-                      borderSide:
-                      BorderSide(width: 2.0, color: Colors.green),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0)),
-                      child: Text('Отправить чек'),
-                      onPressed: () {},
-                    ),
-                    OutlineButton(
-                      borderSide:
-                      BorderSide(width: 2.0, color: Colors.green),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0)),
-                      child: Text('Отменить покупку билета'),
-                      onPressed: () {
-                      },
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      );
-    },
-  );
-  }
 

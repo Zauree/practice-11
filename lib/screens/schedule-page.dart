@@ -108,7 +108,7 @@ class _SchedulePageState extends State<SchedulePage> {
                                           fontWeight: FontWeight.w600
                                       ),
                                     ),
-                                    SizedBox( height: 5,),
+                                    SizedBox( height: 8,),
                                     Text("Время - 18:39",
                                       style: TextStyle(
                                           color: Colors.black54,
@@ -136,7 +136,7 @@ class _SchedulePageState extends State<SchedulePage> {
                                         fontWeight: FontWeight.w600
                                       ),
                                     ),
-                                    SizedBox( height: 5,),
+                                    SizedBox( height: 8,),
                                     Text("Время - 06:10",
                                       style: TextStyle(
                                           color: Colors.black54,

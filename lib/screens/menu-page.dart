@@ -1,6 +1,8 @@
+import 'package:bus_fleets/screens/passengers-info.dart';
 import 'package:bus_fleets/screens/schedule-page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:bus_fleets/screens/choose-flight.dart';
 
 class MenuPage extends StatelessWidget {
   @override
@@ -106,11 +108,11 @@ class MenuPage extends StatelessWidget {
                           color: Color.fromRGBO(109, 109, 109, 1),
                         ),
                       ),
-                      onTap: () { /*
+                      onTap: () {
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => FirstRoute())
-                  ); */
+                      MaterialPageRoute(builder: (context) => ChooseFlight())
+                  );
                       }
                   ),
                   ListTile(
